@@ -2,8 +2,8 @@ PHRASE_SIGNALS = [
     ("urgent", "Urgency language"),
     ("verify", "Account verification request"),
     ("suspended", "Threat of suspension"),
-    ("click", "Call-to-action link"),
     ("password", "Credential request"),
+    ("click", "Call-to-action language"),
     ("immediately", "Time pressure"),
 ]
 
@@ -20,7 +20,7 @@ def explain(score: float, subject: str, body: str):
     elif score >= 0.6:
         reasons.append("Moderate phishing intent detected")
 
-    # De-duplicate while preserving order
+    # de-duplicate
     seen = set()
     out = []
     for r in reasons:

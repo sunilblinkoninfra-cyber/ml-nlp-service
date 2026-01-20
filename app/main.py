@@ -3,7 +3,7 @@ from app.schema import TextAnalysisRequest
 from services.nlp_model import predict
 from services.explainability import explain
 
-app = FastAPI(title="NLP Phishing Detection Service")
+app = FastAPI(title="NLP Phishing Detection Service (Lightweight)")
 
 @app.post("/analyze/text")
 def analyze_text(payload: TextAnalysisRequest):
@@ -13,5 +13,5 @@ def analyze_text(payload: TextAnalysisRequest):
     return {
         "text_ml_score": round(score, 2),
         "signals": reasons,
-        "model_version": "nlp-v1.0.0"
+        "model_version": "nlp-tfidf-v1.0.0"
     }
